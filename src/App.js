@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import Sign_in from './components/Signin';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Register from './components/Register';
+import Surveylist from './components/Surveylist';
+import SurveyPage from './components/SurveyPage';
+import QuestionPage from './components/CreateQuestion';
+import Preview from './components/Preview';
 
-function App() {
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path={"/"} element={<Sign_in />} />
+           <Route path={"/Register"} element={<Register />} /> 
+           <Route path={"/Surveylist"} element={<Surveylist />} />
+           <Route path={"/Surveypage"} element={<SurveyPage />} />
+           <Route path={"/Questions"} element={<QuestionPage />} />
+           <Route path={"/Preview"} element={<Preview />} />
+
+      
+        </Routes>
+      </Router>
+
+
     </div>
   );
 }
